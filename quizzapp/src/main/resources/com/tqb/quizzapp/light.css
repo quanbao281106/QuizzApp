@@ -12,6 +12,6 @@
 
 .Button {
     -fx-background-color: #E0E0E0;
-    -fx-text-fill: White;
+    -fx-text-fill: black;
     -fx-pref-Width: 200;
 }

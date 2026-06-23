@@ -1,8 +1,8 @@
 package com.tqb.quizzapp;
 
-import com.tql.utils.MyAlertSingleton;
-import com.tql.utils.themes.ThemeTypes;
-import static com.tql.utils.themes.ThemeTypes.DARK;
+import com.tqb.utils.MyAlertSingleton;
+import com.tqb.utils.MyStageSingleton;
+import com.tqb.utils.themes.ThemeTypes;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -14,7 +14,7 @@ import javafx.scene.control.ComboBox;
 public class PrimaryController implements Initializable{
     @FXML private ComboBox<ThemeTypes> cbThemes;
     public void QuanLyCauHoi (ActionEvent e){
-        MyAlertSingleton.getInstance().showAlert("comming soon...");
+        MyStageSingleton.getInstance().showStage("question");
     }
     
     public void LuyenTap (ActionEvent e){
@@ -31,10 +31,6 @@ public class PrimaryController implements Initializable{
     }
     
     public void changeTheme(ActionEvent e) {
-        switch (this.cbThemes.getSelectionModel().getSelectedItem()) {
-            case DARK:
-                this.cbThemes.getScene().getRoot().getStylesheets().clear();
-                this.cbThemes.getScene().getRoot().getStylesheets().add(App.class.getResource("dark.css").toExternalForm());
-    }
+        this.cbThemes.getSelectionModel().getSelectedItem().updateTheme(this.cbThemes.getScene());
     }
 }
